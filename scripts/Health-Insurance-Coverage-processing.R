@@ -1,4 +1,6 @@
 library(dplyr)
+library(devtools)
+load_all('../datapkg')
 library(datapkg)
 library(acs)
 library(stringr)
@@ -17,7 +19,7 @@ options(scipen=999)
 dataset <- data.table()
 
 # Iterate through years
-for (year in c(2012:2016)) {
+for (year in c(2012:2017)) {
     year.stub = substr(as.character(year), 3, 4)
     # No Health insurance
     file <- paste("ACS_", year.stub, "_5YR_B27001_with_ann.csv", sep = "")
@@ -254,7 +256,7 @@ dataset <- dataset %>%
 # Write to File
 write.table(
     dataset,
-    file.path(getwd(), "data", "health-insurance-coverage-2016.csv"),
+    file.path(getwd(), "data", "health-insurance-coverage-2017.csv"),
     sep = ",",
     row.names = F,
     na = "-9999"

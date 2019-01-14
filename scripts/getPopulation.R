@@ -7,7 +7,7 @@ options(scipen=999)
 dataset <- data.table()
 
 # Iterate through years
-for (year in c(2012:2016)) {
+for (year in c(2012:2017)) {
     year.stub = substr(as.character(year), 3, 4)
     # No Health insurance
     file <- paste("ACS_", year.stub, "_5YR_B27001_with_ann.csv", sep = "")
